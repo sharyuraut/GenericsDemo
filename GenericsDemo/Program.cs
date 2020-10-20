@@ -2,6 +2,22 @@
 
 namespace GenericsDemo
 {
+    public class PrintArray<T>
+    {
+        private T[] inputArray;
+        public PrintArray(T[] inputArray)
+        {
+            this.inputArray = inputArray;
+        }
+        public void toPrint()
+        {
+            foreach (var element in inputArray)
+            {
+                Console.WriteLine(element);
+            }
+            Console.WriteLine("---------");
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -12,18 +28,9 @@ namespace GenericsDemo
             double[] doubleArray = { 1.1, 2.1, 3.1, 3.4 };
             char[] charArray = { 'h', 'r', 't' };
 
-            Program.toPrint<int>(intArray);
-            Program.toPrint<double>(doubleArray);
-            Program.toPrint<char>(charArray);
-        }
-
-        private static void toPrint<T>(T[] intArray)
-        {
-            foreach (var element in intArray)
-            {
-                Console.WriteLine(element);
-            }
-            Console.WriteLine("---------");
+            new PrintArray<int>(intArray).toPrint();
+            new PrintArray<double>(doubleArray).toPrint();
+            new PrintArray<char>(charArray).toPrint();
         }
     }
 }
