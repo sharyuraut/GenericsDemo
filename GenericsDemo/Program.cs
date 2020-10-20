@@ -12,32 +12,14 @@ namespace GenericsDemo
             double[] doubleArray = { 1.1, 2.1, 3.1, 3.4 };
             char[] charArray = { 'h', 'r', 't' };
 
-            Program.toPrint(intArray);
-            Program.toPrint(doubleArray);
-            Program.toPrint(charArray);
+            Program.toPrint<int>(intArray);
+            Program.toPrint<double>(doubleArray);
+            Program.toPrint<char>(charArray);
         }
 
-        private static void toPrint(char[] charArray)
+        private static void toPrint<T>(T[] intArray)
         {
-            foreach(char element in charArray)
-            {
-                Console.WriteLine(element);
-            }
-            Console.WriteLine("---------");
-        }
-
-        private static void toPrint(double[] doubleArray)
-        {
-            foreach (double element in doubleArray)
-            {
-                Console.WriteLine(element);
-            }
-            Console.WriteLine("---------");
-        }
-
-        private static void toPrint(int[] intArray)
-        {
-            foreach (int element in intArray)
+            foreach (var element in intArray)
             {
                 Console.WriteLine(element);
             }
